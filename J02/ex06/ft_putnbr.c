@@ -12,20 +12,21 @@
 
 int		ft_putchar(char c);
 
-void	ft_putnbr(int nbr)
+void ft_putnbr(int nb)
 {
-	if (nbr >= 0 && nbr < 10)
-	{
-		ft_putchar(nbr + '0');
-	}
-	else if (nbr < 0)
-	{
-		ft_putchar('-');
-		ft_putchar(nbr * (-1));
-	}
-	else
-	{
-		ft_putchar(nbr / 10);
-		ft_putchar(nbr % 10);
-	}
+    if (nb < 0)
+    {
+        ft_putchar('-');
+        nb = -nb;
+    }
+    if (nb >= 10)
+    {
+        ft_putnbr(nb / 10);
+        ft_putnbr(nb % 10);
+    }
+    else
+    {
+        ft_putchar(nb + '0');
+    }
 }
+
