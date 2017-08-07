@@ -11,55 +11,71 @@
 /* ************************************************************************** */
 
 int		ft_putchar(char c);
-void	ad_last_block(char a, char b);
-void	ad_print_numbers(char a, char b, char c, char d);
+void ft_print_comb2(void);
+void ft_put_comb(int a, int b);
+void ft_my_putnbr(int nb);
 
-void	ft_print_comb2(void)
+void ft_print_comb2(void)
 {
-	char a;
-	char b;
+    int a;
+    int b;
 
-	a = '0';
-	while (a <= '9')
-	{
-		b = '0';
-		while (b <= '9')
-		{
-			ad_last_block(a, b);
-			b++;
-		}
-		a++;
-	}
+    a = 0;
+    while (a < 99)
+    {
+        b = a + 1;
+        while (b <= 99)
+        {
+            ft_put_comb(a, b);
+            b++;
+        }
+        a++;
+    }
 }
 
-void	ad_last_block(char a, char b)
+void ft_my_putnbr(int nb)
 {
-	char c;
-	char d;
+    int tmp;
+    int size;
 
-	c = a;
-	while (c <= '9')
-	{
-		d = b + 1;
-		while (d <= '9')
-		{
-			ad_print_numbers(a, b, c, d);
-			if (!(a == '9' && b == '8' && c == '9' && d == '9'))
-			{
-				ft_putchar(',');
-				ft_putchar(' ');
-			}
-			d++;
-		}
-		c++;
-	}
+    size = 1;
+    if (nb < 0)
+    {
+        ft_putchar('-');
+        nb = -nb;
+    }
+    tmp = nb;
+    while (tmp > 9)
+    {
+        tmp /= 10;
+        size *= 10;
+    }
+    tmp = nb;
+    while (size > 0)
+    {
+        ft_putchar((char)(tmp / size) + 48);
+        tmp %= size;
+        size /= 10;
+    }
 }
 
-void	ad_print_numbers(char a, char b, char c, char d)
+void ft_put_comb(int a, int b)
 {
-	ft_putchar(a);
-	ft_putchar(b);
-	ft_putchar(' ');
-	ft_putchar(c);
-	ft_putchar(d);
+    if (a != 0 || b != 1)
+        ft_putchar(',');
+    if (a != 0 || b != 1)
+        ft_putchar(' ');
+    if (a < 10)
+        ft_putchar('0');
+    if (a < 10)
+        ft_putchar(a + '0');
+    else
+        ft_my_putnbr(a);
+    ft_putchar(' ');
+    if (b < 10)
+        ft_putchar('0');
+    if (b < 10)
+        ft_putchar(b + '0');
+    else
+        ft_my_putnbr(b);
 }
