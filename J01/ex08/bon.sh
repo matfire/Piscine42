@@ -1,0 +1,1 @@
+ldapsearch -Q -LLL "uid=*bon*" last-name | sed  '/last-name:/p' | wc -l | sed "s/ *//g"
