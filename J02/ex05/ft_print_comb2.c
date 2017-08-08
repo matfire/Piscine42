@@ -6,76 +6,48 @@
 /*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/06 07:54:15 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/06 08:05:55 by mgassend         ###   ########.fr       */
+/*   Updated: 2017/08/08 11:44:37 by mgassend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_putchar(char c);
-void ft_print_comb2(void);
-void ft_put_comb(int a, int b);
-void ft_my_putnbr(int nb);
+void	ft_print_num(int n);
 
-void ft_print_comb2(void)
+void	ft_print_comb2(void)
 {
-    int a;
-    int b;
+	int comma;
+	int i;
+	int j;
 
-    a = 0;
-    while (a < 99)
-    {
-        b = a + 1;
-        while (b <= 99)
-        {
-            ft_put_comb(a, b);
-            b++;
-        }
-        a++;
-    }
+	comma = 0;
+	i = 0;
+	while (i < 100)
+	{
+		j = i + 1;
+		while (j < 100)
+		{
+			if (comma == 1) 
+			{
+				ft_putchar(',');
+				ft_putchar(' ');
+			}
+			ft_print_num(i);
+			ft_putchar(' ');
+			ft_print_num(j);
+			j++;
+			comma = 1;
+		}
+		i++;
+	}
 }
 
-void ft_my_putnbr(int nb)
+void	ft_print_num(int n)
 {
-    int tmp;
-    int size;
+	char c2;
+	char c1;
 
-    size = 1;
-    if (nb < 0)
-    {
-        ft_putchar('-');
-        nb = -nb;
-    }
-    tmp = nb;
-    while (tmp > 9)
-    {
-        tmp /= 10;
-        size *= 10;
-    }
-    tmp = nb;
-    while (size > 0)
-    {
-        ft_putchar((char)(tmp / size) + 48);
-        tmp %= size;
-        size /= 10;
-    }
-}
-
-void ft_put_comb(int a, int b)
-{
-    if (a != 0 || b != 1)
-        ft_putchar(',');
-    if (a != 0 || b != 1)
-        ft_putchar(' ');
-    if (a < 10)
-        ft_putchar('0');
-    if (a < 10)
-        ft_putchar(a + '0');
-    else
-        ft_my_putnbr(a);
-    ft_putchar(' ');
-    if (b < 10)
-        ft_putchar('0');
-    if (b < 10)
-        ft_putchar(b + '0');
-    else
-        ft_my_putnbr(b);
+	c2 = '0' + (n / 10);
+	ft_putchar(c2);
+	c1 = '0' + (n % 10);
+	ft_putchar(c1);
 }

@@ -6,7 +6,7 @@
 /*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/05 10:03:55 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/07 18:11:24 by mgassend         ###   ########.fr       */
+/*   Updated: 2017/08/08 13:02:39 by mgassend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,4 @@ void	ad_print_space(void)
 {
 	ft_putchar(',');
 	ft_putchar(' ');
-}
-
-int		main(void)
-{
-	ft_print_comb();
-	return (0);
 }
