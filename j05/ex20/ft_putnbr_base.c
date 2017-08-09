@@ -6,7 +6,7 @@
 /*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/09 11:54:15 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/09 12:03:54 by mgassend         ###   ########.fr       */
+/*   Updated: 2017/08/09 15:13:34 by mgassend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_putnbr_base(int nbr, char *base)
 			ft_putchar(base[nbr_final[i]]);
 	}
 }
+
 int		check_base(char *base)
 {
 	int i;
