@@ -6,7 +6,7 @@
 /*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/06 07:54:15 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/08 11:44:37 by mgassend         ###   ########.fr       */
+/*   Updated: 2017/08/09 10:52:10 by mgassend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_print_comb2(void)
 		j = i + 1;
 		while (j < 100)
 		{
-			if (comma == 1) 
+			if (comma == 1)
 			{
 				ft_putchar(',');
 				ft_putchar(' ');
