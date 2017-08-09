@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/08 13:53:34 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/09 11:48:21 by mgassend         ###   ########.fr       */
+/*   Created: 2017/08/09 11:49:50 by mgassend          #+#    #+#             */
+/*   Updated: 2017/08/09 11:52:56 by mgassend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	char *occurrence;
-	int i;
-	int y;
+	unsigned int i;
 
-	occurrence = 0;
-	if (to_find[0] == '\0')
-		return (str);
 	i = 0;
-	while (str[i] != '\0')
+	while (src[i])
 	{
-		if (str[i] == to_find[0])
-		{
-			occurrence = str + i;
-			y = 0;
-			while (str[i + y] == to_find[y])
-			{
-				if (to_find[y + 1] == '\0')
-					return (occurrence);
-				y++;
-			}
-			occurrence = 0;
-		}
+		if (i < size - 1)
+			dest[i] = src[i];
 		i++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (i);
 }

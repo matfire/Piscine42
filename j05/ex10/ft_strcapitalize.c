@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/08 13:53:34 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/09 11:48:21 by mgassend         ###   ########.fr       */
+/*   Created: 2017/08/09 07:53:02 by mgassend          #+#    #+#             */
+/*   Updated: 2017/08/09 08:01:55 by mgassend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strcapitalize(char *str)
 {
-	char *occurrence;
 	int i;
-	int y;
+	char c;
+	int space;
 
-	occurrence = 0;
-	if (to_find[0] == '\0')
-		return (str);
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == to_find[0])
-		{
-			occurrence = str + i;
-			y = 0;
-			while (str[i + y] == to_find[y])
-			{
-				if (to_find[y + 1] == '\0')
-					return (occurrence);
-				y++;
-			}
-			occurrence = 0;
-		}
+		space = 1;
+		if (i == 0)
+			c = ';';
+		else
+			c = str[i - 1];
+		if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+			space = 0;
+		if (space == 1 && str[i] >= 97 && str[i] <= 122)
+			str[i] = str[i] - 32;
+		if (space == 0 && str[i] >= 65 && str[i] <= 90)
+			str[i] = str[i] + 32;
 		i++;
 	}
-	return (0);
+	return (str);
 }

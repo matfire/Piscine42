@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/08 13:53:34 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/09 11:48:21 by mgassend         ###   ########.fr       */
+/*   Created: 2017/08/09 08:56:22 by mgassend          #+#    #+#             */
+/*   Updated: 2017/08/09 09:44:41 by mgassend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strncat(char *dest, char *src, int nb)
 {
-	char *occurrence;
 	int i;
-	int y;
+	int length;
 
-	occurrence = 0;
-	if (to_find[0] == '\0')
-		return (str);
 	i = 0;
-	while (str[i] != '\0')
+	length = 0;
+	while (dest[i] != '\0')
 	{
-		if (str[i] == to_find[0])
-		{
-			occurrence = str + i;
-			y = 0;
-			while (str[i + y] == to_find[y])
-			{
-				if (to_find[y + 1] == '\0')
-					return (occurrence);
-				y++;
-			}
-			occurrence = 0;
-		}
+		length++;
 		i++;
 	}
-	return (0);
+	i = 0;
+	while (i < nb && src[i] != '\0')
+	{
+		dest[length + i] = src[i];
+		i++;
+	}
+	dest[length + i] = '\0';
+	return (dest);
 }
