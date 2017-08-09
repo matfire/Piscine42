@@ -6,11 +6,11 @@
 /*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/06 10:24:56 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/06 12:22:10 by mgassend         ###   ########.fr       */
+/*   Updated: 2017/08/08 13:31:53 by mgassend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_strrev(char *str)
+char	*ft_strrev(char *str)
 {
 	int i;
 	int j;
@@ -29,5 +29,5 @@ char	ft_strrev(char *str)
 		i--;
 		j++;
 	}
-	return (*str);
+	return (str);
 }
