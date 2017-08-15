@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   duplicate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amarandi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 14:49:26 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/13 11:10:06 by mgassend         ###   ########.fr       */
+/*   Created: 2017/08/13 10:20:57 by amarandi          #+#    #+#             */
+/*   Updated: 2017/08/13 21:12:46 by pcahier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_print_params(char *str)
+void	duplicate_argv(char **argv, char array[9][9])
 {
-	int i;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (i < 9)
 	{
-		ft_putchar(str[i]);
+		j = 0;
+		while (j < 9)
+		{
+			array[i][j] = argv[i + 1][j];
+			j++;
+		}
+		array[i][j] = '\0';
 		i++;
 	}
-	ft_putchar('\n');
-}
-
-int		main(int argc, char **argv)
-{
-	int i;
-
-	i = argc - 1;
-	while (i > 0)
-	{
-		ft_print_params(argv[i]);
-		i--;
-	}
-	return (0);
 }

@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 14:49:26 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/13 11:10:06 by mgassend         ###   ########.fr       */
+/*   Created: 2017/08/14 10:35:37 by mgassend          #+#    #+#             */
+/*   Updated: 2017/08/14 10:39:06 by mgassend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <stdlib.h>
 
-void	ft_print_params(char *str)
+int		ft_ultimate_range(int **range, int min, int max)
 {
 	int i;
+	int *tab;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (min >= max)
 	{
-		ft_putchar(str[i]);
+		*range = 0;
+		return (0);
+	}
+	tab = (int*)malloc(sizeof(int) * (max - min));
+	if (tab == NULL)
+		return (0);
+	while (min < max)
+	{
+		tab[i] = min;
+		min++;
 		i++;
 	}
-	ft_putchar('\n');
-}
-
-int		main(int argc, char **argv)
-{
-	int i;
-
-	i = argc - 1;
-	while (i > 0)
-	{
-		ft_print_params(argv[i]);
-		i--;
-	}
-	return (0);
+	*range = tab;
+	return (i);
 }

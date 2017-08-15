@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amarandi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 14:42:53 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/13 11:09:38 by mgassend         ###   ########.fr       */
+/*   Created: 2017/08/12 15:34:29 by amarandi          #+#    #+#             */
+/*   Updated: 2017/08/13 23:16:25 by pcahier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_print_params(char *str)
+int	invalid_input(int argc, char **argv)
 {
-	int i;
+	int	i;
+	int	j;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	ft_putchar('\n');
-}
-
-int		main(int argc, char **argv)
-{
-	int i;
-
+	if (argc != 10)
+		return (1);
 	i = 1;
 	while (i < argc)
 	{
-		ft_print_params(argv[i]);
+		j = 0;
+		while (argv[i][j] != 0 || j != 9)
+		{
+			if (!((argv[i][j] >= '1' && argv[i][j] <= '9')
+				|| argv[i][j] == '.'))
+				return (2);
+			if (++j > 9)
+				return (3);
+		}
 		i++;
 	}
 	return (0);

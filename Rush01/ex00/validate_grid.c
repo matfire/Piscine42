@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   validate_grid.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pcahier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 14:49:26 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/13 11:10:06 by mgassend         ###   ########.fr       */
+/*   Created: 2017/08/13 21:55:24 by pcahier           #+#    #+#             */
+/*   Updated: 2017/08/13 21:58:13 by pcahier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_print_params(char *str)
+int		validate_grid(char grid[9][9])
 {
-	int i;
+	int		i;
+	int		j;
 
-	i = 0;
-	while (str[i] != '\0')
+	j = 0;
+	while (j < 9)
 	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	ft_putchar('\n');
-}
-
-int		main(int argc, char **argv)
-{
-	int i;
-
-	i = argc - 1;
-	while (i > 0)
-	{
-		ft_print_params(argv[i]);
-		i--;
+		i = 0;
+		while (i < 9)
+		{
+			if (grid[i][j] == '.')
+				return (1);
+			i++;
+		}
+		j++;
 	}
 	return (0);
 }

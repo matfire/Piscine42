@@ -6,12 +6,13 @@
 /*   By: mgassend <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:30:12 by mgassend          #+#    #+#             */
-/*   Updated: 2017/08/10 14:41:33 by mgassend         ###   ########.fr       */
+/*   Updated: 2017/08/13 11:08:53 by mgassend         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
+
 int		main(int argc, char **argv)
 {
 	int i;
